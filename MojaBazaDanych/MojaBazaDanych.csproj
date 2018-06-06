@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.10.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,14 +47,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="bazadanych.cs" />
+    <Compile Include="edycjaProducenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="edycjaProducenta.Designer.cs">
+      <DependentUpon>edycjaProducenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="edycjaProduktu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="edycjaProduktu.Designer.cs">
+      <DependentUpon>edycjaProduktu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="logowanie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="logowanie.Designer.cs">
+      <DependentUpon>logowanie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menu.Designer.cs">
+      <DependentUpon>menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="wyswietListeProducentow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wyswietListeProducentow.Designer.cs">
+      <DependentUpon>wyswietListeProducentow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wyswietListeProduktow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wyswietListeProduktow.Designer.cs">
+      <DependentUpon>wyswietListeProduktow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="edycjaProducenta.resx">
+      <DependentUpon>edycjaProducenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="edycjaProduktu.resx">
+      <DependentUpon>edycjaProduktu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="logowanie.resx">
+      <DependentUpon>logowanie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menu.resx">
+      <DependentUpon>menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +107,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="wyswietListeProducentow.resx">
+      <DependentUpon>wyswietListeProducentow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wyswietListeProduktow.resx">
+      <DependentUpon>wyswietListeProduktow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
