@@ -105,6 +105,11 @@ namespace MojaBazaDanych
             string Query = "INSERT into producent (Nazwa, opis) VALUES(?, ?); ";
             sendCommand(Query, nazwaBox.Text, opisBox.Text);
         }
+        public void dodajProdukt(TextBox symbolBox, TextBox produktBox, TextBox opisBox, TextBox nettoBox, TextBox bruttoBox, TextBox stanBox)
+        {
+            string Query = "INSERT into produkty (symbol, produkt, opis, netto, brutto, stan) VALUES(?, ?, ?, ?, ?, ?); ";
+            sendCommand(Query, symbolBox.Text, produktBox.Text, opisBox.Text, nettoBox.Text, bruttoBox.Text, stanBox.Text);
+        }
         public void usunProducenta(TextBox IDBox)
         {
             var myID = IDBox.Text;
@@ -116,12 +121,30 @@ namespace MojaBazaDanych
             sendCommand(deleteQuery, myID);
             sendCommand(foreign, 1);
         }
+        public void usunProdukt(TextBox IDBox1)
+        {
+            var myID = IDBox1.Text;
+            string foreign = "SET FOREIGN_KEY_CHECKS = ?;";
+            sendCommand(foreign, 0);
+            string deleteQuery = "DELETE FROM produkty WHERE id = ?;";
+            sendCommand(deleteQuery, myID);
+            deleteQuery = "DELETE FROM produkty WHERE id = ?;";
+            sendCommand(deleteQuery, myID);
+            sendCommand(foreign, 1);
+        }
         public void edytujProducenta(TextBox nazwaBox, TextBox opisBox, TextBox IDBox)
         {
             int myID = int.Parse(IDBox.Text.ToString());
 
             string updateQuery = "UPDATE producent SET nazwa = ?, opis = ? WHERE id = ?;";
             sendCommand(updateQuery, nazwaBox.Text, opisBox.Text, myID);
+        }
+        public void edytujProdukt(TextBox symbolBox, TextBox produktBox, TextBox opisBox, TextBox nettoBox, TextBox bruttoBox, TextBox stanBox, TextBox IDBox1)
+        {
+            int myID = int.Parse(IDBox1.Text.ToString());
+
+            string updateQuery = "UPDATE produkty SET symbol = ?, produkt = ?, opis = ?, netto = ?, brutto = ?, stan = ? WHERE id = ?;";
+            sendCommand(updateQuery, symbolBox.Text, produktBox.Text, opisBox.Text, nettoBox.Text, bruttoBox.Text, stanBox.Text, myID);
         }
 
         public void sendQueryDataGridView(DataGridView DataGrid, string Query, params object[] p)

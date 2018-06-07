@@ -47,9 +47,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(150, 70);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(500, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(760, 208);
             this.dataGridView1.TabIndex = 2;
             // 
             // odswiez_button
@@ -62,7 +62,7 @@
             this.odswiez_button.UseVisualStyleBackColor = true;
             this.odswiez_button.Click += new System.EventHandler(this.odswiez_button_Click);
             // 
-            // wyswietListeProduktow
+            // wyswietListeProducentow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -70,7 +70,7 @@
             this.Controls.Add(this.odswiez_button);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.powrot_button1);
-            this.Name = "wyswietListeProduktow";
+            this.Name = "wyswietListeProducentow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista produktów";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

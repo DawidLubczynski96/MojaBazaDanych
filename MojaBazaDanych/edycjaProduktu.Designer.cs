@@ -35,15 +35,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.symbolBox = new System.Windows.Forms.TextBox();
+            this.produktBox = new System.Windows.Forms.TextBox();
+            this.opisBox = new System.Windows.Forms.TextBox();
+            this.nettoBox = new System.Windows.Forms.TextBox();
+            this.bruttoBox = new System.Windows.Forms.TextBox();
+            this.stanBox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dodaj_button1 = new System.Windows.Forms.Button();
             this.usun_button1 = new System.Windows.Forms.Button();
+            this.edytuj_button1 = new System.Windows.Forms.Button();
+            this.odswiez_button = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.IDBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +57,7 @@
             this.powrot_button1.Name = "powrot_button1";
             this.powrot_button1.Size = new System.Drawing.Size(200, 50);
             this.powrot_button1.TabIndex = 1;
-            this.powrot_button1.Text = "Powrot do menu";
+            this.powrot_button1.Text = "Powrót do menu";
             this.powrot_button1.UseVisualStyleBackColor = true;
             this.powrot_button1.Click += new System.EventHandler(this.powrot_button1_Click);
             // 
@@ -71,11 +75,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.label2.Location = new System.Drawing.Point(96, 83);
+            this.label2.Location = new System.Drawing.Point(86, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 31);
+            this.label2.Size = new System.Drawing.Size(108, 31);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Nazwa";
+            this.label2.Text = "Produkt";
             // 
             // label3
             // 
@@ -117,53 +121,53 @@
             this.label6.TabIndex = 7;
             this.label6.Text = "Aktualny stan";
             // 
-            // textBox1
+            // symbolBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.textBox1.Location = new System.Drawing.Point(200, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(400, 38);
-            this.textBox1.TabIndex = 8;
+            this.symbolBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.symbolBox.Location = new System.Drawing.Point(200, 30);
+            this.symbolBox.Name = "symbolBox";
+            this.symbolBox.Size = new System.Drawing.Size(366, 38);
+            this.symbolBox.TabIndex = 8;
             // 
-            // textBox2
+            // produktBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.textBox2.Location = new System.Drawing.Point(200, 80);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(400, 38);
-            this.textBox2.TabIndex = 9;
+            this.produktBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.produktBox.Location = new System.Drawing.Point(200, 80);
+            this.produktBox.Name = "produktBox";
+            this.produktBox.Size = new System.Drawing.Size(366, 38);
+            this.produktBox.TabIndex = 9;
             // 
-            // textBox3
+            // opisBox
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.textBox3.Location = new System.Drawing.Point(200, 130);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(400, 38);
-            this.textBox3.TabIndex = 10;
+            this.opisBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.opisBox.Location = new System.Drawing.Point(200, 130);
+            this.opisBox.Name = "opisBox";
+            this.opisBox.Size = new System.Drawing.Size(366, 38);
+            this.opisBox.TabIndex = 10;
             // 
-            // textBox4
+            // nettoBox
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.textBox4.Location = new System.Drawing.Point(200, 180);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(400, 38);
-            this.textBox4.TabIndex = 11;
+            this.nettoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.nettoBox.Location = new System.Drawing.Point(200, 180);
+            this.nettoBox.Name = "nettoBox";
+            this.nettoBox.Size = new System.Drawing.Size(366, 38);
+            this.nettoBox.TabIndex = 11;
             // 
-            // textBox5
+            // bruttoBox
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.textBox5.Location = new System.Drawing.Point(200, 230);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(400, 38);
-            this.textBox5.TabIndex = 12;
+            this.bruttoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.bruttoBox.Location = new System.Drawing.Point(200, 230);
+            this.bruttoBox.Name = "bruttoBox";
+            this.bruttoBox.Size = new System.Drawing.Size(366, 38);
+            this.bruttoBox.TabIndex = 12;
             // 
-            // textBox6
+            // stanBox
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.textBox6.Location = new System.Drawing.Point(200, 280);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(400, 38);
-            this.textBox6.TabIndex = 13;
+            this.stanBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.stanBox.Location = new System.Drawing.Point(200, 280);
+            this.stanBox.Name = "stanBox";
+            this.stanBox.Size = new System.Drawing.Size(366, 38);
+            this.stanBox.TabIndex = 13;
             // 
             // dataGridView1
             // 
@@ -181,6 +185,7 @@
             this.dodaj_button1.TabIndex = 15;
             this.dodaj_button1.Text = "Dodaj produkt";
             this.dodaj_button1.UseVisualStyleBackColor = true;
+            this.dodaj_button1.Click += new System.EventHandler(this.dodaj_button1_Click);
             // 
             // usun_button1
             // 
@@ -190,21 +195,64 @@
             this.usun_button1.TabIndex = 16;
             this.usun_button1.Text = "Usuń produkt";
             this.usun_button1.UseVisualStyleBackColor = true;
+            this.usun_button1.Click += new System.EventHandler(this.usun_button1_Click);
+            // 
+            // edytuj_button1
+            // 
+            this.edytuj_button1.Location = new System.Drawing.Point(572, 253);
+            this.edytuj_button1.Name = "edytuj_button1";
+            this.edytuj_button1.Size = new System.Drawing.Size(200, 50);
+            this.edytuj_button1.TabIndex = 24;
+            this.edytuj_button1.Text = "Edytuj produkt";
+            this.edytuj_button1.UseVisualStyleBackColor = true;
+            this.edytuj_button1.Click += new System.EventHandler(this.edytuj_button1_Click);
+            // 
+            // odswiez_button
+            // 
+            this.odswiez_button.Location = new System.Drawing.Point(572, 171);
+            this.odswiez_button.Name = "odswiez_button";
+            this.odswiez_button.Size = new System.Drawing.Size(200, 50);
+            this.odswiez_button.TabIndex = 25;
+            this.odswiez_button.Text = "Odśwież";
+            this.odswiez_button.UseVisualStyleBackColor = true;
+            this.odswiez_button.Click += new System.EventHandler(this.odswiez_button_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.label7.Location = new System.Drawing.Point(601, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 31);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "ID";
+            // 
+            // IDBox1
+            // 
+            this.IDBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.IDBox1.Location = new System.Drawing.Point(649, 30);
+            this.IDBox1.Name = "IDBox1";
+            this.IDBox1.Size = new System.Drawing.Size(123, 38);
+            this.IDBox1.TabIndex = 27;
             // 
             // edycjaProduktu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.IDBox1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.odswiez_button);
+            this.Controls.Add(this.edytuj_button1);
             this.Controls.Add(this.usun_button1);
             this.Controls.Add(this.dodaj_button1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.stanBox);
+            this.Controls.Add(this.bruttoBox);
+            this.Controls.Add(this.nettoBox);
+            this.Controls.Add(this.opisBox);
+            this.Controls.Add(this.produktBox);
+            this.Controls.Add(this.symbolBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -230,14 +278,18 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox symbolBox;
+        private System.Windows.Forms.TextBox produktBox;
+        private System.Windows.Forms.TextBox opisBox;
+        private System.Windows.Forms.TextBox nettoBox;
+        private System.Windows.Forms.TextBox bruttoBox;
+        private System.Windows.Forms.TextBox stanBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button dodaj_button1;
         private System.Windows.Forms.Button usun_button1;
+        private System.Windows.Forms.Button edytuj_button1;
+        private System.Windows.Forms.Button odswiez_button;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox IDBox1;
     }
 }

@@ -37,11 +37,11 @@
             this.dodaj_button = new System.Windows.Forms.Button();
             this.usun_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.IDBox = new System.Windows.Forms.TextBox();
             this.odswiez_button = new System.Windows.Forms.Button();
             this.edytuj_button = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +51,7 @@
             this.powrot_button.Name = "powrot_button";
             this.powrot_button.Size = new System.Drawing.Size(200, 50);
             this.powrot_button.TabIndex = 0;
-            this.powrot_button.Text = "Powrot do menu";
+            this.powrot_button.Text = "Powrót do menu";
             this.powrot_button.UseVisualStyleBackColor = true;
             this.powrot_button.Click += new System.EventHandler(this.powrot_button_Click);
             // 
@@ -129,16 +129,6 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "Dodawanie do bazy";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.25F);
-            this.label4.Location = new System.Drawing.Point(259, 215);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(241, 36);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Usuwanie z bazy";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -176,6 +166,16 @@
             this.edytuj_button.Text = "Edytuj producenta";
             this.edytuj_button.UseVisualStyleBackColor = true;
             this.edytuj_button.Click += new System.EventHandler(this.edytuj_button_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.25F);
+            this.label4.Location = new System.Drawing.Point(259, 215);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(241, 36);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Usuwanie z bazy";
             // 
             // edycjaProducenta
             // 
@@ -216,10 +216,10 @@
         private System.Windows.Forms.Button dodaj_button;
         private System.Windows.Forms.Button usun_button;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox IDBox;
         private System.Windows.Forms.Button odswiez_button;
         private System.Windows.Forms.Button edytuj_button;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -29,7 +29,7 @@ namespace MojaBazaDanych
             }
             catch (Exception es)
             {
-                MessageBox.Show("Błąd odświeżania tabeli. Brak połączenia z bazą danych. \r\n" + es.Message + "\r\n" + es.InnerException.Message);
+                MessageBox.Show("Błąd odświeżania tabeli. Brak połączenia z bazą danych. \r\n", "Informacja" + es.Message + "\r\n" + es.InnerException.Message);
             }
             finally
             {
