@@ -29,7 +29,6 @@ namespace MojaBazaDanych
                 form.ShowDialog();
                 connectionWithDatabase.CloseConnection();
                 this.Close();
-                //this.Show();
             }
             else
             {

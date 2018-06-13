@@ -24,7 +24,6 @@ namespace MojaBazaDanych
                 {
                     connectionWithDatabase.OpenConnection();
                 }
-
                 connectionWithDatabase.searchForMaker(dataGridView1);
             }
             catch (Exception es)
@@ -45,7 +44,6 @@ namespace MojaBazaDanych
                 {
                     connectionWithDatabase.OpenConnection();
                 }
-
                 connectionWithDatabase.searchForMaker(dataGridView1);
             }
             catch (Exception es)

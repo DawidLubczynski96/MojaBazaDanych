@@ -106,12 +106,8 @@
 
         private System.Windows.Forms.Button wyswietl_button;
         private System.Windows.Forms.Button edycja_button;
-        private System.Windows.Forms.Button usun_button;
-        private System.Windows.Forms.Button edytuj_button;
         private System.Windows.Forms.Button koniec_button;
         private System.Windows.Forms.Button wyswietl_button1;
         private System.Windows.Forms.Button edycja_button1;
-        private System.Windows.Forms.Button usun_button1;
-        private System.Windows.Forms.Button edytuj_button1;
     }
 }

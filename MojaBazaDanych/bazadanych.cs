@@ -26,7 +26,7 @@ namespace MojaBazaDanych
                 Initialize();
             }
 
-            /*/ Initialize() tworzy polaczenie z baza /*/
+            /*/ Initialize() tworzy połączenie z bazą /*/
             public void Initialize()
             {
                 logowanie myLogin = new logowanie();
@@ -53,7 +53,7 @@ namespace MojaBazaDanych
 
                 Command.ExecuteNonQuery();
             }
-            /*/ executeScalar(string command, params object[] p) zapytanie zwraca zmienna /*/
+            /*/ executeScalar(string command, params object[] p) zapytanie zwraca zmienną /*/
             public object executeScalar(string command, params object[] p)
             {
                 object variable;
@@ -67,14 +67,15 @@ namespace MojaBazaDanych
                 return variable;
             }
 
-            /*/ isConnected() zwraca TRUE/FALSE, czy jestesmy polaczeni z baza /*/
+            /*/ isConnected() zwraca TRUE/FALSE, czy jestesmy połączeni z bazą /*/
             public bool isConnected()
             {
                 if (connection.State == System.Data.ConnectionState.Open)
                     return true;
-                else return false;
+                else
+                    return false;
             }
-            /*/ OpenConnection() otwiera polaczenie /*/
+            /*/ OpenConnection() otwiera połączenie /*/
             public bool OpenConnection()
             {
                 try
@@ -87,7 +88,7 @@ namespace MojaBazaDanych
                     return false;
                 }
             }
-            /*/ CloseConnection() zamykam polaczenie /*/
+            /*/ CloseConnection() zamyka połączenie /*/
             public bool CloseConnection()
             {
                 try
@@ -102,12 +103,13 @@ namespace MojaBazaDanych
             }
         public void dodajProducenta(TextBox nazwaBox, TextBox opisBox)
         {
-            string Query = "INSERT into producent (Nazwa, opis) VALUES(?, ?); ";
+            string Query = "INSERT INTO producent (nazwa, opis) VALUES(?, ?)";
+
             sendCommand(Query, nazwaBox.Text, opisBox.Text);
         }
         public void dodajProdukt(TextBox symbolBox, TextBox produktBox, TextBox opisBox, TextBox nettoBox, TextBox bruttoBox, TextBox stanBox)
         {
-            string Query = "INSERT into produkty (symbol, produkt, opis, netto, brutto, stan) VALUES(?, ?, ?, ?, ?, ?); ";
+            string Query = "INSERT INTO produkty (symbol, produkt, opis, netto, brutto, stan) VALUES(?, ?, ?, ?, ?, ?); ";
             sendCommand(Query, symbolBox.Text, produktBox.Text, opisBox.Text, nettoBox.Text, bruttoBox.Text, stanBox.Text);
         }
         public void usunProducenta(TextBox IDBox)
@@ -146,7 +148,6 @@ namespace MojaBazaDanych
             string updateQuery = "UPDATE produkty SET symbol = ?, produkt = ?, opis = ?, netto = ?, brutto = ?, stan = ? WHERE id = ?;";
             sendCommand(updateQuery, symbolBox.Text, produktBox.Text, opisBox.Text, nettoBox.Text, bruttoBox.Text, stanBox.Text, myID);
         }
-
         public void sendQueryDataGridView(DataGridView DataGrid, string Query, params object[] p)
         {
             MySqlDataAdapter adapter = new MySqlDataAdapter(Query, connection);
@@ -161,15 +162,67 @@ namespace MojaBazaDanych
             DataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
+        /*/wyświetlanie tabeli producentów/*/
         public void searchForMaker(DataGridView DataGrid)
         {
             string Query = @"SELECT * FROM producent";
             sendQueryDataGridView(DataGrid, Query);
         }
+        /*/wyświetlanie tabeli produktów/*/
         public void searchForData(DataGridView DataGrid)
         {
             string Query = @"SELECT * FROM produkty";
             sendQueryDataGridView(DataGrid, Query);
+        }
+        /*/sortowanie producenta/*/
+        public void searchForMakerByName(DataGridView DataGrid, TextBox sortowanieBox)
+        {
+            string Query = @"SELECT id, nazwa, opis FROM producent 
+                            WHERE (nazwa = ?) ORDER BY nazwa;";
+            sendQueryDataGridView(DataGrid, Query, sortowanieBox.Text);
+        }
+        public void searchForMakerByDescription(DataGridView DataGrid, TextBox sortowanieBox)
+        {
+            string Query = @"SELECT id, nazwa, opis FROM producent 
+                            WHERE (opis = ?) ORDER BY opis;";
+            sendQueryDataGridView(DataGrid, Query, sortowanieBox.Text);
+        }
+        /*/sortowanie produktów/*/
+        public void searchForDataByCode(DataGridView DataGrid, TextBox sortowanieBox)
+        {
+            string Query = @"SELECT id, symbol, produkt, opis, netto, brutto, stan FROM produkty 
+                            WHERE (symbol = ?) ORDER BY symbol;";
+            sendQueryDataGridView(DataGrid, Query, sortowanieBox.Text);
+        }
+        public void searchForDataByName(DataGridView DataGrid, TextBox sortowanieBox)
+        {
+            string Query = @"SELECT id, symbol, produkt, opis, netto, brutto, stan FROM produkty 
+                            WHERE (produkt = ?) ORDER BY produkt;";
+            sendQueryDataGridView(DataGrid, Query, sortowanieBox.Text);
+        }
+        public void searchForDataByDescription(DataGridView DataGrid, TextBox sortowanieBox)
+        {
+            string Query = @"SELECT id, symbol, produkt, opis, netto, brutto, stan FROM produkty 
+                            WHERE (opis = ?) ORDER BY opis;";
+            sendQueryDataGridView(DataGrid, Query, sortowanieBox.Text);
+        }
+        public void searchForDataByNetto(DataGridView DataGrid, TextBox sortowanieBox)
+        {
+            string Query = @"SELECT id, symbol, produkt, opis, netto, brutto, stan FROM produkty 
+                            WHERE (netto = ?) ORDER BY netto;";
+            sendQueryDataGridView(DataGrid, Query, sortowanieBox.Text);
+        }
+        public void searchForDataByBrutto(DataGridView DataGrid, TextBox sortowanieBox)
+        {
+            string Query = @"SELECT id, symbol, produkt, opis, netto, brutto, stan FROM produkty 
+                            WHERE (brutto = ?) ORDER BY brutto;";
+            sendQueryDataGridView(DataGrid, Query, sortowanieBox.Text);
+        }
+        public void searchForDataByAvailability(DataGridView DataGrid, TextBox sortowanieBox)
+        {
+            string Query = @"SELECT id, symbol, produkt, opis, netto, brutto, stan FROM produkty 
+                            WHERE (stan = ?) ORDER BY stan;";
+            sendQueryDataGridView(DataGrid, Query, sortowanieBox.Text);
         }
     }
 }

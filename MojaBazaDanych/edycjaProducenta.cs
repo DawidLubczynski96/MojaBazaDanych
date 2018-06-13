@@ -24,7 +24,6 @@ namespace MojaBazaDanych
                 {
                     connectionWithDatabase.OpenConnection();
                 }
-
                 connectionWithDatabase.searchForMaker(dataGridView1);
             }
             catch (Exception es)
@@ -62,6 +61,18 @@ namespace MojaBazaDanych
             {
                 MessageBox.Show("Błąd dodawania producenta. Sprawdź połączenie z bazą danych. \r\n", "Informacja" + es.Message + "\r\n" + es.InnerException.Message);
             }
+            try
+            {
+                if (!connectionWithDatabase.isConnected())
+                {
+                    connectionWithDatabase.OpenConnection();
+                }
+                connectionWithDatabase.searchForMaker(dataGridView1);
+            }
+            catch (Exception es)
+            {
+                MessageBox.Show("Błąd odświeżania tabeli. Brak połączenia z bazą danych. \r\n", "Informacja" + es.Message + "\r\n" + es.InnerException.Message);
+            }
             finally
             {
                 connectionWithDatabase.CloseConnection();
@@ -81,11 +92,22 @@ namespace MojaBazaDanych
                     connectionWithDatabase.usunProducenta(IDBox);
                     MessageBox.Show("Wybrany producent został usunięty z bazy danych.", "Informacja");
                 }
-
             }
             catch (Exception es)
             {
                 MessageBox.Show("Błąd usuwania producenta. Sprawdź połączenie z bazą danych. \r\n", "Informacja" + es.Message + "\r\n" + es.InnerException.Message);
+            }
+            try
+            {
+                if (!connectionWithDatabase.isConnected())
+                {
+                    connectionWithDatabase.OpenConnection();
+                }
+                connectionWithDatabase.searchForMaker(dataGridView1);
+            }
+            catch (Exception es)
+            {
+                MessageBox.Show("Błąd odświeżania tabeli. Brak połączenia z bazą danych. \r\n", "Informacja" + es.Message + "\r\n" + es.InnerException.Message);
             }
             finally
             {
@@ -101,7 +123,6 @@ namespace MojaBazaDanych
                 {
                     connectionWithDatabase.OpenConnection();
                 }
-
                 connectionWithDatabase.searchForMaker(dataGridView1);
             }
             catch (Exception es)
@@ -112,7 +133,6 @@ namespace MojaBazaDanych
             {
                 connectionWithDatabase.CloseConnection();
             }
-
         }
 
         private void edytuj_button_Click(object sender, EventArgs e)
@@ -123,9 +143,14 @@ namespace MojaBazaDanych
                 {
                     connectionWithDatabase.OpenConnection();
                 }
-                if (nazwaBox.Text == "" || opisBox.Text == "" || IDBox.Text == "")
+                if (IDBox.Text == "")
                 {
-                    MessageBox.Show("Błąd. Pola nie mogą być puste.", "Informacja");
+                    MessageBox.Show("Błąd. Pole ID nie może być puste.", "Informacja");
+                    return;
+                }
+                if (nazwaBox.Text == "" && opisBox.Text == "")
+                {
+                    MessageBox.Show("Błąd. Przynajmniej jedno pole musi być wypełnione.", "Informacja");
                     return;
                 }
                 connectionWithDatabase.edytujProducenta(nazwaBox, opisBox, IDBox);
@@ -135,10 +160,97 @@ namespace MojaBazaDanych
             {
                 MessageBox.Show("Błąd dodawania producenta. Sprawdź połączenie z bazą danych. \r\n", "Informacja" + es.Message + "\r\n" + es.InnerException.Message);
             }
+            try
+            {
+                if (!connectionWithDatabase.isConnected())
+                {
+                    connectionWithDatabase.OpenConnection();
+                }
+                connectionWithDatabase.searchForMaker(dataGridView1);
+            }
+            catch (Exception es)
+            {
+                MessageBox.Show("Błąd odświeżania tabeli. Brak połączenia z bazą danych. \r\n", "Informacja" + es.Message + "\r\n" + es.InnerException.Message);
+            }
             finally
             {
                 connectionWithDatabase.CloseConnection();
             }
+        }
+
+        private void sortuj_button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!connectionWithDatabase.isConnected())
+                {
+                    connectionWithDatabase.OpenConnection();
+                }
+                if (checkBoxSortowanie1.Checked)
+                {
+                    connectionWithDatabase.searchForMakerByName(dataGridView1, sortowanieBox);
+                }
+                else if (checkBoxSortowanie2.Checked)
+                {
+                    connectionWithDatabase.searchForMakerByDescription(dataGridView1, sortowanieBox);
+                }
+                else if (!checkBoxSortowanie1.Checked)
+                {
+                    try
+                    {
+                        if (!connectionWithDatabase.isConnected())
+                        {
+                            connectionWithDatabase.OpenConnection();
+                        }
+                        connectionWithDatabase.searchForMaker(dataGridView1);
+                    }
+                    catch (Exception es)
+                    {
+                        MessageBox.Show("Błąd odświeżania tabeli. Brak połączenia z bazą danych. \r\n", "Informacja" + es.Message + "\r\n" + es.InnerException.Message);
+                    }
+                    finally
+                    {
+                        connectionWithDatabase.CloseConnection();
+                    }
+                }
+                else if (!checkBoxSortowanie2.Checked)
+                {
+                    try
+                    {
+                        if (!connectionWithDatabase.isConnected())
+                        {
+                            connectionWithDatabase.OpenConnection();
+                        }
+                        connectionWithDatabase.searchForMaker(dataGridView1);
+                    }
+                    catch (Exception es)
+                    {
+                        MessageBox.Show("Błąd odświeżania tabeli. Brak połączenia z bazą danych. \r\n", "Informacja" + es.Message + "\r\n" + es.InnerException.Message);
+                    }
+                    finally
+                    {
+                        connectionWithDatabase.CloseConnection();
+                    }
+                }
+            }
+            catch (Exception es)
+            {
+                MessageBox.Show("Błąd sortowania danych. Sprawdź połączenie z bazą danych. \r\n", "Informacja" + es.Message + "\r\n" + es.InnerException.Message);
+            }
+            finally
+            {
+                connectionWithDatabase.CloseConnection();
+            }
+        }
+
+        private void wyczysc_button_Click(object sender, EventArgs e)
+        {
+            nazwaBox.Text = "";
+            opisBox.Text = "";
+            IDBox.Text = "";
+            sortowanieBox.Text = "";
+    
+            MessageBox.Show("Pola zostały wyczyszczone.", "Informacja");
         }
     }
 }
